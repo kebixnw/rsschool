@@ -68,13 +68,19 @@ header img {
   margin: 8px 0 0 0;
 }
 
-
+footer{
+    text-align: center;
+    padding-bottom: 20px;
+}
 
 
 /*fonts*/
 p{
     font-weight: 100;
     color: rgb(47, 47, 47);
+}
+footer p{
+    color: #737373;
 }
 h1,h2{
     font-weight: 900;
