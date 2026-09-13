@@ -13,6 +13,7 @@ main{
     height: auto;
     margin: 0 auto;
 
+
 }
 .back-photo{
     background-image: url('img/bb.png');
@@ -20,8 +21,6 @@ main{
 }
 
 header{
-    position: flex;
-    top: 0;
     width: 60%;
     box-sizing: border-box;
     margin-left: auto; 
@@ -32,21 +31,50 @@ header{
     padding: 10px 35px; 
 
     font-size: small;
-    color: #8d8d8d;
+    font-weight:bold;
+    color: #a7a5a4;
 }
 header img {
     vertical-align: middle;
     margin-right: 5px;     
 }
 
-footer{
+.cv-layout {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
 
+  display: grid;
+  grid-template-columns: 40% 2px 60%;
+  gap: 20px;
+  box-sizing: border-box;
+  align-items: start;   
 }
+
+.info-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;   
+  gap: 20px;
+  align-items: start;   
+  margin-bottom: 100px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.skills-col p {
+  margin: 8px 0 0 0;
+}
+
+
 
 
 /*fonts*/
 p{
     font-weight: 100;
+    color: rgb(47, 47, 47);
 }
 h1,h2{
     font-weight: 900;
@@ -60,5 +88,20 @@ h1,h2{
 a{
     text-decoration: none;
     color: inherit;   
+}
+           
+.info-title {
+  margin: 0;
+  line-height: 1;
+}
+
+.info-desc {
+  margin: 0;
+  line-height: 1.4;
+}
+.divider {
+  background: black;
+  width: 2px;
+  height: 90%;            
 }
 
