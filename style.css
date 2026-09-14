@@ -1,19 +1,19 @@
 body {
-    background-color: #FFB800;
+    background-color: var(--back-color);
     margin: 0;
     padding: 0;
 
     font-family: sans-serif  ;
+    font-size: large;
 }
 
 
 main{
-    max-width: 1000px;
-    background-color: white;
+    max-width: 1200px;
+    background: var(--main);
+    color: var(--text);
     height: auto;
     margin: 0 auto;
-
-
 }
 .back-photo{
     background-image: url('img/bb.png');
@@ -21,7 +21,7 @@ main{
 }
 
 header{
-    width: 60%;
+    width: 50%;
     box-sizing: border-box;
     margin-left: auto; 
     
@@ -46,22 +46,23 @@ header img {
 
   display: grid;
   grid-template-columns: 40% 2px 60%;
-  gap: 20px;
   box-sizing: border-box;
   align-items: start;   
 }
-
+.info-table{
+    margin-left: 40px;
+    font-size: large;
+}
 .info-row {
   display: grid;
   grid-template-columns: 150px 1fr;   
-  gap: 20px;
+  gap: 60px;
   align-items: start;   
   margin-bottom: 100px;
 }
 .skills {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
 }
 
 .skills-col p {
@@ -71,16 +72,17 @@ header img {
 footer{
     text-align: center;
     padding-bottom: 20px;
+    color: var(--footer-txt);
 }
 
 
 /*fonts*/
 p{
     font-weight: 100;
-    color: rgb(47, 47, 47);
+    color: var(--text);
 }
 footer p{
-    color: #737373;
+    color: var(--footer-txt);
 }
 h1,h2{
     font-weight: 900;
@@ -88,13 +90,24 @@ h1,h2{
     font-size: 1.5em;
 }
 
-.photo-prof img{
-    width: 300px;
-}
-a{
+.cv-layout a{
     text-decoration: none;
-    color: inherit;   
+    color: var(--text);
+    border-bottom: 0 solid #FF5D00; /* Параметры линии снизу */
+    transition: 0.2s; /* Время перехода */
 }
+.cv-layout a:hover { border-bottom-width: 3px; }
+
+button {
+  all: unset;
+  cursor: pointer; 
+  color: var(--link); 
+}
+header a{
+  text-decoration: none;
+  color: var(--link);
+}
+header a.active{text-shadow: 0px 0px 20px #FF5D00; color:#FF5D00}
            
 .info-title {
   margin: 0;
@@ -111,3 +124,62 @@ a{
   height: 90%;            
 }
 
+
+/* иконка темы — картинка из переменной */
+.theme-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: var(--img-theme);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.theme-label::before {
+    content: var(--label-text);
+}
+
+.photo-prof {
+    width: 300px;
+    height: 300px;
+    background-image: var(--img-ava);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* buttons */
+.theme-btn {
+    cursor: pointer;
+    color: var(--btn-txt);
+}
+
+.theme-btn:hover .theme-label::before {
+    text-decoration: underline;
+}
+:root {
+  --back-color: #FFB800;
+  --main:       #ffffff;   /* фон страницы */
+  --text:       #222222;   /* основной текст */
+  --link:       #a7a5a4;   /* ссылки */
+  --btn-txt:    #a7a5a4;   /* текст кнопки */
+  --footer-txt: #737373;   /*текст футера*/
+  --img-theme:  url("img/light-star.png");
+  --img-ava:    url("img/avatar-cv-light.png");
+  --label-text: "dark /";
+}
+
+:root:has(#theme-switch:checked) {
+  --back-color: #14140c;
+  --main:       #646044;   /* фон страницы */
+  --text:       #ffffff;   /* основной текст */
+  --link:       #ffffff;   /* ссылки */
+  --btn-txt:    #ffffff;   /* текст кнопки */
+  --footer-txt: rgb(59, 59, 59);   /*текст футера*/
+  --img-theme:  url("img/dark-star.png");
+  --img-ava:    url("img/avatar-cv-dark.png");
+  --label-text: "light /";
+}
